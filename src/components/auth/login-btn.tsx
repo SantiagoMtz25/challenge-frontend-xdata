@@ -8,21 +8,16 @@ const LoginBtn = () => {
   const router = useRouter();
 
   const handleLogin = () => {
-    setIsLoading(true);
-
-    // setTimeout to simulate real login time
-    setTimeout(() => {
-      console.log("Logging in...");
-      setIsLoading(false);
-    }, 2000);
+    // setIsLoading(true);
+    // handle login logic or invoke a hook to handle logic
 
     router.push("/dashboard");
   };
 
   return (
     <button 
-      className='w-full flex items-center justify-center border-[1px] rounded-[8px] bg-[#3751ff] py-4 
-      text-white tracking-[0.2px] leading-[20px] cursor-pointer hover:scale-105 active:scale-95 transition-all' 
+      className='w-full h-12 flex items-center justify-center border-[1px] rounded-[8px] bg-[#3751ff] py-4 
+      text-white tracking-[0.2px] leading-5 cursor-pointer hover:scale-105 active:scale-100 transition-all' 
       onClick={handleLogin}
       disabled={isLoading}
     >

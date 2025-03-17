@@ -21,7 +21,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, type = "text", placehold
   };
 
   return (
-    <div className="w-[100%] flex flex-col gap-1">
+    <div className="w-[100%] h-16 flex flex-col gap-1">
       {type === "password" ? (
         <div className="flex justify-between items-center">
           <label className="text-[12px] font-bold text-[#9FA2B4] tracking-[0.3px]">{label}</label>
@@ -41,8 +41,8 @@ const InputField: React.FC<InputFieldProps> = ({ label, type = "text", placehold
         />
         {type === "password" && (
           <Image 
-            width={17} 
-            height={13} 
+            width={20} 
+            height={20} 
             src={showPassword ? "/eye.svg" : "/eye-off.svg"} 
             alt={altText || "Toggle password visibility"} 
             className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer" 
