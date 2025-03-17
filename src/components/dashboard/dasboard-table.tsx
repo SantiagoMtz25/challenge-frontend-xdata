@@ -14,7 +14,9 @@ const DashboardTable = () => {
         </div>
       </div>
 
-      <TableComponent tableData={tableData} />
+      <div className="w-full overflow-x-auto">
+        <TableComponent tableData={tableData} />
+      </div>
     </div>
   );
 };

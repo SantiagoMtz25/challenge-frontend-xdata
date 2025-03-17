@@ -4,7 +4,7 @@ import { TableProps } from "@/data/table-data";
 
 const TableComponent: React.FC<TableProps> = ({ tableData }) => {
   return (
-    <table className="w-full">
+    <table className="min-w-[1120px]">
       <thead>
         <tr className="border-b border-[1px] border-[#EAECF0]">
           <th className="py-[12px] px-[24px] text-left">
