@@ -1,11 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 import { sidebarContents, sidebarIcons } from "@/data/dashboard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getItemClassName, getIconClassName } from "@/utils/sidebar-styles";
+import SidebarItem from "./sidebar-item";
+import SidebarLogo from "./sidebar-logo";
 
+/**
+* @returns Sidebar with responsive behavior and animations
+*/
 const Sidebar = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
@@ -14,44 +16,34 @@ const Sidebar = () => {
 
   return (
     <aside className="w-full sm:w-[76px] lg:w-[255px] sm:min-h-full bg-[#363740] sm:pt-[37px] transition-all duration-300">
-      <div className="flex justify-between sm:justify-center items-center gap-[12px] px-[9px] py-[13px] sm:px-0 sm:py-0">
-        <Image width={32} height={32} alt="Logo Image" src={`/logologo.svg`} />
-        <span className="text-center text-[#A4A6B3] tracking-[0.4px] font-bold hidden lg:inline">
-          Dashboard Kit
-        </span>
-        <Image width={20} height={20} alt="Notification Icon" src={"/new.svg"} className="sm:hidden" />
-      </div>
+      <SidebarLogo />
 
       <nav className="hidden sm:inline">
         <ul className="space-y-0 pt-[60px]">
-          {topMenuItems.map((val, index) => (
-            <li
-              key={val.hash}
-              className={`${getItemClassName(index, selectedIndex)} sm:justify-center lg:justify-start`}
-              onClick={() => setSelectedIndex(index)}
-            >
-              <FontAwesomeIcon
-                icon={sidebarIcons[val.hash]}
-                className={getIconClassName(index, selectedIndex)}
-              />
-              <span className="sm:hidden lg:inline">{val.name}</span>
-            </li>
+          {topMenuItems.map((item, index) => (
+            <SidebarItem
+              key={item.hash}
+              item={item}
+              index={index}
+              selectedIndex={selectedIndex}
+              iconMap={sidebarIcons}
+              onSelect={setSelectedIndex}
+              animationDelay={0.2 + index * 0.1}
+            />
           ))}
         </ul>
         <div className="w-full border-[#3e3f48] border-[1px]"></div>
         <ul>
-          {bottomMenuItems.map((val, index) => (
-            <li
-              key={val.hash}
-              className={`${getItemClassName(index + topMenuItems.length, selectedIndex)} sm:justify-center lg:justify-start`}
-              onClick={() => setSelectedIndex(index + topMenuItems.length)}
-            >
-              <FontAwesomeIcon
-                icon={sidebarIcons[val.hash]}
-                className={getIconClassName(index + topMenuItems.length, selectedIndex)}
-              />
-              <span className="sm:hidden lg:inline">{val.name}</span>
-            </li>
+          {bottomMenuItems.map((item, index) => (
+            <SidebarItem
+              key={item.hash}
+              item={item}
+              index={index + topMenuItems.length}
+              selectedIndex={selectedIndex}
+              iconMap={sidebarIcons}
+              onSelect={setSelectedIndex}
+              animationDelay={0.2 + (topMenuItems.length + index) * 0.1}
+            />
           ))}
         </ul>
       </nav>

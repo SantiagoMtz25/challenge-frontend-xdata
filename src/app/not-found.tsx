@@ -1,30 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 /**
- * If a user for some reason navigates to a route that does not exist, 
- * this component will be displayed. And redirect in 5 seconds to the login page.
- * 
  * @returns Not found route component which displays a 404 page.
+ * Redirects to the login page after 5 seconds.
  */
 export default function NotFound() {
-  const [backCounter, setBackCounter] = useState<number>(5);
+  const [secondsRemaining, setSecondsRemaining] = useState<number>(5);
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBackCounter((prev) => prev - 1);
+      setSecondsRemaining((prev) => prev - 1);
     }, 1000);
 
     const timeout = setTimeout(() => {
-      window.location.href = "/";
+      router.push("/");
     }, 5000);
 
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, []);
+  }, [router]);
 
   return (
     <div className="h-screen flex flex-col justify-center">
@@ -38,16 +38,15 @@ export default function NotFound() {
               No se ha encontrado.
             </p>
             <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-              Lo sentimos, no podemos encontrar esa página. Encontrarás mucho para explorar en la página de login.{" "}
-              <br />
-              Serás redirigido en {backCounter} segundos.
+              Lo sentimos, no podemos encontrar esa página. <br />
+              Serás redirigido en {secondsRemaining} segundos.
             </p>
-            <a
-              href="/"
+            <button
+              onClick={() => router.push("/")}
               className="inline-flex text-white bg-slate-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4"
             >
               Volver a la página de login
-            </a>
+            </button>
           </div>
         </div>
       </section>

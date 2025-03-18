@@ -22,12 +22,19 @@ const sidebarIcons = {
   "/subscription": faCreditCard,
 } as const;
 
+const mainCardsData = [
+  { title: "Unresolved", value: 60 },
+  { title: "Overdue", value: 16 },
+  { title: "Open", value: 43 },
+  { title: "on hold", value: 64 },
+] as const;
+
 const chartData = [
   { title: "Resolved", value: "449" },
   { title: "Received", value: "426" },
   { title: "Average first response time", value: "33m" },
   { title: "Average response time", value: "3h 8m" },
   { title: "Resolution within SLA", value: "94%" }
-]
+] as const
 
-export { sidebarContents, sidebarIcons, chartData };
+export { sidebarContents, sidebarIcons, mainCardsData, chartData };

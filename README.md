@@ -1,9 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Challenge frontend - NextJS
 
-## Getting Started
+## Overview
+This project is a technical test for the Full Stack Developer position at X-Data, it consits on implementing a UI in Next.js with Tailwind CSS, Framer Motion, and clean architecture, following specifications of a figma file with a strong emphasis in visual resemblance and responsiveness for different devices.
 
-First, run the development server:
+## Stack
+- NextJS 15
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
+### View
+-To clone the repo run the commands:
+
+```bash
+git clone https://github.com/SantiagoMtz25/challenge-frontend-xdata.git
+```
+
+Run the project with 
 ```bash
 npm run dev
 # or
@@ -16,21 +29,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-Or view the project deployed on vercel:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vercel link: https://challenge-frontend-xdata.vercel.app/
 
-## Learn More
+## Implementation notes
+-It meets the criteria of responsive design, exclusive use of Tailwind CSS, and modularity.
+-No component library was used, components were built with Tailwind CSS.
+-Most components are kept under 50 lines, with few exceptions. 
 
-To learn more about Next.js, take a look at the following resources:
+## Improvements areas
+-Implement a larger validation in the login form.
+-Extract repetitive tailwind styles into reusable components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+santimtzv01@gmail.com
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thanks for the opportunity in participating in this challenge, I would greatly appreciate receiving feedback on it to identify areas of opportunity. Best regards. :)

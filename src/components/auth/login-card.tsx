@@ -3,6 +3,7 @@ import Logo from "./logo";
 import FormHeader from "./form-header";
 import FormLogin from "./form-login";
 
+// includes all components for form login card
 const LoginCard = () => {
   return (
     <div className="w-[380px] h-[710px] sm:w-[600px] sm:h-[582px] md:w-[380px] md:h-[582px] bg-white 

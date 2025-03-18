@@ -12,6 +12,7 @@ interface InputFieldProps {
   altText?: string;
 }
 
+// input for login form with handling for password field
 const InputField: React.FC<InputFieldProps> = ({ label, type = "text", placeholder, name, altText }) => {
   const [showPassword, setShowPassword] = useState(false);
   const actualType = type === "password" ? (showPassword ? "text" : "password") : type;
@@ -35,7 +36,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, type = "text", placehold
           type={actualType}
           name={name}
           placeholder={placeholder}
-          className="w-full py-3 px-4 bg-[#FCFDFE] text-[14px] text-[#4B506D] tracking-[0.3px] leading-[20px]
+          className="w-full py-3 px-4 bg-[#FCFDFE] text-[14px] text-[#4B506D] tracking-[0.3px] leading-5
            border-[1px] border-[#F0F1F7] rounded-[8px] focus:outline-none focus:border-[#3751ff]
           transition-colors"
         />
